@@ -1,0 +1,17 @@
+app = "gestiondetemps"
+
+[build]
+image = "docker.io/library/openjdk:21-jdk-slim"
+
+[env]
+SPRING_DATASOURCE_URL = "jdbc:mysql://mysql:3306/monappdb"
+SPRING_DATASOURCE_USERNAME = "root"
+SPRING_DATASOURCE_PASSWORD = "root"
+
+[[services]]
+internal_port = 8080
+protocol = "tcp"
+
+[[services.ports]]
+handlers = ["http"]
+port = 80
